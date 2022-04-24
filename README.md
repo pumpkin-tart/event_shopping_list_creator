@@ -44,3 +44,7 @@ README〜ER図作成：4/24 〆切
 メイン機能実装：4/25 - 5/31
 β版をRUNTEQ内リリース（MVP）：5/31〆切
 本番リリース：6月
+
+## 画面推移図
+
+https://www.figma.com/file/aicoDtUVHX7KS7fVD4KyZh/Untitled?node-id=0%3A1
