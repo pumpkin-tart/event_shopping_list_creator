@@ -48,3 +48,7 @@ README〜ER図作成：4/24 〆切
 ## 画面推移図
 
 https://www.figma.com/file/aicoDtUVHX7KS7fVD4KyZh/Untitled?node-id=0%3A1
+
+## ER図
+
+https://drive.google.com/file/d/1E1ASTFfJuJ8K4ZTJS8NcpdL_LO1Q8s0d/view?usp=sharing
