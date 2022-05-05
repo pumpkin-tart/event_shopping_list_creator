@@ -7,10 +7,14 @@ class EventsController < ApplicationController
   def create
     @event = current_user.events.build(event_params)
     if @event.save
-      redirect_to login_path #あとで修正
+      render :show
     else
       render :new
     end
+  end
+
+  def show
+    @event = Event.find(params[:id])
   end
     
   private

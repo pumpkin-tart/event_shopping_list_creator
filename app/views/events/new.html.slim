@@ -1,14 +1,6 @@
 .container
   .row
-    .col-md-10.offset-md-1.col-lg-8.offset-lg-2
+    .col-lg-8.offset-lg-2
       h1
-        | イベント作成
-      = form_with model: @event, local: true do |f|
-        .form-group
-          = f.label :title
-          = f.text_field :title, class: 'form-control'
-        .form-group
-          = f.label :map_image
-          = f.file_field :map_image, class: 'form-control mb-3', accept: 'image/*'
-          = f.hidden_field :map_image_cache
-        = f.submit '作成', class: 'btn btn-primary'
+        = t('.title')
+      = render 'form', { event: @event }
