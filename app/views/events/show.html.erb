@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <title>イベントMAP</title>
+  <%= stylesheet_link_tag 'leaflet' %>
+  <script src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js"></script>
+  <style>
+    html, body {
+      width: 100%;
+      height: 100%;
+      margin: 0px;
+      padding: 0px;
+    }
+    #map {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+    }
+  </style>
+</head>
+
+<body>
+<% content_for(:title, @event.title) %>
+  <h1><%= t('.title') %></h1>
+
+  <%= link_to 'Edit', events_path %>
+  <%= link_to 'Back', events_path %>
+
+  <div id="map" class="leaflet-container leaflet-touch leaflet-retina leaflet-fade-anim leaflet-grab leaflet-touch-drag leaflet-touch-zoom" tabindex="0" style="outline: none;">
+    <div class="leaflet-pane leaflet-map-pane" style="transform: translate3d(225px, 225px, 225px);">
+      <div class="leaflet-pane leaflet-tile-pane"></div>
+      <div class="leaflet-pane leaflet-shadow-pane"></div>
+      <div class="leaflet-pane leaflet-overlay-pane">
+        <%= image_tag @event.map_image.url, class: "leaflet-image-layer leaflet-zoom-animated" %>  
+        <canvas class="leaflet-layer leaflet-zoom-animated" width="649" height="913" style="transform: translate3d(225px, -63px, 0px);">      
+      </div>
+      <div class="leaflet-pane leaflet-marker-pane"></div>
+      <div class="leaflet-pane leaflet-tooltip-pane"></div>
+      <div class="leaflet-pane leaflet-popup-pane"></div>
+      <div class="leaflet-proxy leaflet-zoom-animated" style="transform: translate3d(225.5px, 225.5px, 0px) scale(0.625);"></div>
+    </div>
+  <div class="leaflet-control-container">
+    <div class="leaflet-top leaflet-left">
+      <div class="leaflet-control-zoom leaflet-bar leaflet-control">
+        <a class="leaflet-control-zoom-in" href="#" title="Zoom in" role="button" aria-label="Zoom in">+</a>
+        <a class="leaflet-control-zoom-out leaflet-disabled" href="#" title="Zoom out" role="button" aria-label="Zoom out">-</a>
+      </div>
+    </div>
+    <div class="leaflet-top leaflet-right"></div>
+    <div class="leaflet-bottom leaflet-left"></div>
+    <div class="leaflet-bottom leaflet-right">
+      <div class="leaflet-control-attribution leaflet-control">
+        <a href="http://leafletjs.com" title="A JS library for interactive maps">Leaflet</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  //空の地図をデータで表示
+  map = L.map('map', {
+    dragging: false, 
+    zoomControl: true,
+	  maxZoom: 5,
+	  minZoom: -5,
+	  crs: L.CRS.Simple
+    preferCanvas: true
+  });
+
+  //表示する画像のパスとサイズ
+  var image = {
+    url: @event.map_image.url,
+    width: 100%,
+    height: 100%
+  };
+  
+  //画像領域を地図に設定
+  var imageBounds = L.latLngBounds([
+    map.unproject( [ 0, image.height ] ),
+    map.unproject( [ image.width, 0 ] )
+  ]);
+  map.fitBounds(imageBounds);
+  map.setMaxBounds( imageBounds.pad( 0.5 ) ); //初期表示範囲
+
+  //画像をオーバーレイで設定
+  L.imageOverlay(image.url, imageBounds).addTo(map);
+
+  //キャンバスレイヤーを設定
+  L.canvasLayer().delegate(this).addTo(map);
+
+  //. キャンバスの再描画イベントハンドラ
+  function onDrawLayer(info) {
+    var canvas = info.canvas;
+    var ctx = canvas.getContext('2d');
+
+    var points = [
+      [-1000, 2000]
+      [-2000, 2250]
+    ];
+
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    //ズームレベルに合わせてarcの描画半径を調整
+    var zoom = map.getZoom();
+    var r = 30 * Math.pow(2, zoom);
+
+    for (var i = 0; i < points.length; i++) {
+      var point = points[i];
+      if (info.bounds.contains([point[0], point[1]])) {
+        var p = info.layer._map.latLngToContainerPoint([point[0], point[1]);
+        ctx.beginPath();
+        ctx.fillStyle = colors[i];
+        ctx.arc(p.x, p.y, r, 0, Math.PI * 2);
+        ctx.closePath();
+      }
+    }
+  } 	
+</script>
+
+
+</body>
+</html>

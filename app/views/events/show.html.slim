@@ -1,0 +1,20 @@
+doctype html
+html[lang="ja" dir="ltr"]
+  head
+    meta[charset="utf-8"]
+    title
+      | Leafletデモ
+  body
+    - content_for(:title, @event.title)
+    .container.pt-5
+      .row.mb-3
+        .col-lg-8.offset-lg-2
+          h1
+            = t('.title') 
+    #mapid
+link[rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css" integrity="sha512-hoalWLoI8r4UszCkZ5kL8vayOGVae1oxXe/2A4AO6J9+580uKHDO3JdHb7NzwwzK5xr/Fs0W40kiNHxM9vyTtQ==" crossorigin=""]
+script[src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js" integrity="sha512-BB3hKbKWOc9Ez/TAwyWxNXeoV9c1v6FIeYiBieIWkpLjauysF18NzgR1MBNBXf8/KABdlkX68nAhlwcDFLGPCQ==" crossorigin=""]
+style[media="screen"]
+  | #mapid { height: 500px; } 
+script[type="text/javascript"]
+  | var image = { url: image_tag @event.map_image.url, width: 4307, height: 2820 }; var imageBounds = L.latLngBounds( [0, 0], [image.height/16, image.width/16] ); var map = L.map('map', { crs: L.CRS.Simple, maxBounds: imageBounds.pad(0.5) }); map.fitBounds(imageBounds); L.imageOverlay(@event.map_image.url, imageBounds).addTo(map);
