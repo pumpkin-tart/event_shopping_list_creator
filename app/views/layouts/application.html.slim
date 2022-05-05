@@ -1,0 +1,17 @@
+doctype html
+html
+  head
+    title
+      | EventShoppingListCreator
+    meta[name="viewport" content="width=device-width,initial-scale=1"]
+    = csrf_meta_tags
+    = csp_meta_tag
+    = stylesheet_link_tag "application", "data-turbo-track": "reload"
+  
+  body
+  .row
+    - if logged_in?
+      .col-2
+        = render'layouts/sidebar'
+    .col-8
+      = yield
