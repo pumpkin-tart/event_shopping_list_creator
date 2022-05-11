@@ -1,7 +1,9 @@
+//= require jquery3
+//= require popper
+//= require jquery_ujs
 //= require bootstrap-sprockets
 //= require rails-ujs
 //= require activestorage
-//= require jquery2
-//= require jquery_ujs
+//= require turbolinks
+//= require_tree .
 //= require leaflet
-//= require leaflet.markercluster
