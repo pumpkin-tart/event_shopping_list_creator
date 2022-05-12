@@ -1,5 +1,10 @@
 class EventsController < ApplicationController
-  before_action :require_login
+
+  def index
+    @event = Event.all
+    render :show
+  end
+
   def new
     @event = Event.new
   end
@@ -13,8 +18,29 @@ class EventsController < ApplicationController
     end
   end
 
+
+
   def show
     @event = Event.find(params[:id])
+  end
+
+  def edit
+  end
+
+  def update
+    @event = current_user.events.find(params[:id])
+    if @event.update(event_params)
+      redirect_to @event, success: t('defaults.message.updated', item: Event)
+    else
+      flash.now['danger'] = t('defaults.message.not_updated', item: Event)
+      render :edit
+    end
+  end
+
+  def destroy
+    @event = current_user.events.find(params[:id])
+    @event.destroy!
+    redirect_to new_event_path
   end
     
   private
