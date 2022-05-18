@@ -1,3 +1,4 @@
+//= require leaflet
 //= require jquery3
 //= require popper
 //= require jquery_ujs
@@ -6,4 +7,3 @@
 //= require activestorage
 //= require turbolinks
 //= require_tree .
-//= require leaflet
