@@ -4,8 +4,13 @@
 <head>
   <meta charset="UTF-8">
   <title>イベントMAP</title>
+
+  <!-- Leaflet JS -->
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css" integrity="sha512-hoalWLoI8r4UszCkZ5kL8vayOGVae1oxXe/2A4AO6J9+580uKHDO3JdHb7NzwwzK5xr/Fs0W40kiNHxM9vyTtQ==" crossorigin=""/>
   <script src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js" integrity="sha512-BB3hKbKWOc9Ez/TAwyWxNXeoV9c1v6FIeYiBieIWkpLjauysF18NzgR1MBNBXf8/KABdlkX68nAhlwcDFLGPCQ==" crossorigin=""></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+  <script type="module" src="bundle.js"></script>
+ 
   <style>
     html, body {
         height: 100%;
@@ -16,6 +21,8 @@
         position: static;
         height: 100%;
     }
+
+    
   </style>
 </head>
 
@@ -24,36 +31,39 @@
   <%= link_to 'Edit', edit_event_path(@event) %>
   <%= link_to 'Back', events_path %>
 
-  <script src="https://raw.githubusercontent.com/Sumbera/gLayers.Leaflet/master/L.CanvasLayer.js"></script>
-
   <div id="map">
     <%= image_tag @event.map_image.url, class: "leaflet-image-layer leaflet-zoom-animated" %>
   </div>
   
   <script>
-    //地図を表示するdiv要素のidを設定
-    var map = L.map('map').setView([51.505, -0.09], 13);
 
-    
-    //表示するタイルレイヤのURLとAttributionコントロールの記述を設定して、地図に追加する
-    var image = {
-        url: './3600x3600.png',
-    }
-
-    var marker = L.marker([51.5, -0.09]).addTo(map);
-    marker.bindPopup("<b>Hello world!</b><br>I am a popup.").openPopup();
-  
-  
-    L.imageOverlay( image.url, imageBounds ).addTo( map );
-    
+  //地図を表示するdiv要素のidを設定
+  var map = L.map('map').setView([51.505, -0.09], 13);
+  var control = new L.Control.Bookmarks().addTo(map);
 
 
-    
+  //クリックした時のイベント
+  map.on('click',function ( e ) {
+          //クリックした座標を取得してMarkerを落としつつ、このMarkerをクリックした時のイベントを追加
+          marker = L.marker([e.latlng.lat, e.latlng.lng],{}).addTo(map);
+          });
 
+
+  map.fire('bookmark:new', {
+          latlng: new L.LatLng([51.505, -0.01], 13)
+          });
+
+  var Bookmarks = leafletSrc.Control.extend( /**  @lends Bookmarks.prototype */ {
+          title: 'Bookmarks',
+                  emptyMessage: 'No bookmarks yet',
+                  addBookmarkMessage: 'Add new event',
+                  collapseOnClick: true,
+                  scrollOnAdd: true,
+                  scrollDuration: 1000,
+                  popupOnShow: true,
+                  addNewOption: true,
+  });
+          
   </script>
-
-
-
-
 </body>
 </html>
