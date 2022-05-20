@@ -1,8 +1,7 @@
 class EventsController < ApplicationController
 
   def index
-    @event = Event.all
-    render :show
+    @event = current_user.events.includes(:user).order(created_at: :desc)
   end
 
   def new
@@ -12,8 +11,10 @@ class EventsController < ApplicationController
   def create
     @event = current_user.events.build(event_params)
     if @event.save
+      flash.now['success'] = t('defaults.message.created', item: Event.model_name.human)
       render :show
     else
+      flash.now['danger'] = t('defaults.message.not_created', item: Event.model_name.human)
       render :new
     end
   end
@@ -25,6 +26,7 @@ class EventsController < ApplicationController
   end
 
   def edit
+    @event = current_user.events.find(params[:id])
   end
 
   def update
