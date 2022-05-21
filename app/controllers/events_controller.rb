@@ -1,7 +1,7 @@
 class EventsController < ApplicationController
 
   def index
-    @event = current_user.events.includes(:user).order(created_at: :desc)
+    @events = current_user.events.includes(:user).order(created_at: :desc)
   end
 
   def new
@@ -42,7 +42,7 @@ class EventsController < ApplicationController
   def destroy
     @event = current_user.events.find(params[:id])
     @event.destroy!
-    redirect_to new_event_path
+    redirect_to events_path, success: t('defaults.message.deleted', item: Event.model_name.human)
   end
     
   private
