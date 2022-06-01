@@ -23,6 +23,7 @@ class EventsController < ApplicationController
 
   def show
     @event = Event.find(params[:id])
+    gon.event = @event
   end
 
   def edit
@@ -42,7 +43,7 @@ class EventsController < ApplicationController
   def destroy
     @event = current_user.events.find(params[:id])
     @event.destroy!
-    redirect_to events_path, success: t('defaults.message.deleted', item: Event.model_name.human)
+    redirect_to events_path, success: t('defaults.message.deleted', item: 'イベントMAP')
   end
     
   private

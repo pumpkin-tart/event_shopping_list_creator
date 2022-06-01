@@ -13,6 +13,6 @@ Rails.application.routes.draw do
   get 'logout', to: 'user_sessions#destroy'
 
   resources :users, only: %i[new create]
-  resources :events, only: %i[index show edit update destroy]
+  resources :events
 
 end

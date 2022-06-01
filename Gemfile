@@ -63,6 +63,9 @@ gem 'font-awesome-sass'
 gem 'jquery-rails'
 gem 'webpacker'
 
+# Connect Javascript and Rails app
+gem 'gon'
+
 # Use Sass to process CSS
 # gem "sassc-rails"
 
