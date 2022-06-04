@@ -10,7 +10,8 @@
   <!-- ContextMenu CSS -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet-contextmenu/1.4.0/leaflet.contextmenu.css">
   <link rel="stylesheet" href="https://rawgit.com/w8r/Leaflet.Bookmarks/master/dist/leaflet.bookmarks.css">
- 
+  <link rel="stylesheet" href="https://unpkg.com/leaflet-responsive-popup@0.6.4/leaflet.responsive.popup.css" />
+
   <!-- Leaflet JS -->
   <script src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js" integrity="sha512-BB3hKbKWOc9Ez/TAwyWxNXeoV9c1v6FIeYiBieIWkpLjauysF18NzgR1MBNBXf8/KABdlkX68nAhlwcDFLGPCQ==" crossorigin=""></script>
   <!-- ContextMenu JS -->
@@ -21,7 +22,7 @@
   <script type="text/javascript" src="/js/bundle.js"></script>
 
   <script type="text/javascript" src="/js/leaflet.contextmenu.js"></script>
-
+  <script src="https://unpkg.com/leaflet-responsive-popup@0.6.4/leaflet.responsive.popup.js"></script>
 
   <style>
     html, body {
@@ -70,6 +71,7 @@
         map.zoomOut();
       }
 
+
       map = L.map('map', {
         center: ll,
         zoom: 15,
@@ -84,11 +86,14 @@
       });
 
 
+  var popup = L.responsivePopup().setContent('Leaflet Plugin ResponsivePopup Test Marker1<br>マーカー１');
+    L.marker([35.7101, 139.8107]).addTo(map).bindPopup(popup);
 
-      var control = new L.Control.Bookmarks().addTo(map);
+
+  var control = new L.Control.Bookmarks().addTo(map);
 
 
-    
+
 
   </script> 
 

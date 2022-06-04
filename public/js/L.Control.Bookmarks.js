@@ -335,13 +335,15 @@
       minWidth: 160,
       generateNamesPrefix: 'Bookmark ',
       template: '<form class="{{ formClass }}">' +
-        '<div class="input-group"><input type="text" name="bookmark-name" ' +
-        'placeholder="{{ inputPlaceholder }}" class="form-control {{ inputClass }}" value="{{ name }}">' +
-        '<input type="hidden" class={{ idInputClass }} value="{{ id }}">' +
-        '<button type="submit" class="input-group-addon {{ submitClass }}">' +
-        '{{ submitText }}</button></div>' +
-        '<div class="{{ coordsClass }}">{{ coords }}</div>' +
-        '</form>',
+        'サークル名<br><input type="text" name="bookmark-name"' +
+        'class="form-control {{ inputClass }}" value="{{ name }}"></br>' +
+        '<input type="hidden" class="{{ idInputClass }}" value="{{ id }}">' +
+        '<table><thead><tr><th>商品名</th><th>金額</th></tr></thead>' +
+        '<tbody><tr><td><input type="text" name="item_name[]" class="{{ itemInputClass }}" value="{{ item }}"></td>' +
+        '<td><input type="number" name="price[]" class="{{ priceInputClass }}" value="{{ price }}"></td></tr></tbody>' +
+        '<td><button type="button" id="btn-remove" class="{{ removeBtnClass }}">アイテムを削除</button></td>' +
+        '<tfoot><tr><td ><button type="button" id="btn-add" class="{{ addBtnClass }}">アイテムを追加</button></td></tr></tfoot></table>' +
+        '<button type="submit" class="{{ submitClass }}">{{ submitText }}</button></form>',
       menuTemplate: '<ul class="nav {{ mode }}" role="menu">' +
         '<li class="{{ editClass }}"><a href="#" class="{{ menuItemClass }}">{{ editMenuText }}</a></li>' +
         '<li class="{{ removeClass }}"><a href="#" class="{{ menuItemClass }}">{{ removeMenuText }}</a></li>' +
