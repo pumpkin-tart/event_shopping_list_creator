@@ -1,0 +1,33 @@
+<h1>サークル一覧</h1>
+
+<a class="btn btn-outline-success mb5 btn-lg">
+  <span class="d-none d-md-inline">商品追加</span>
+</a>
+
+<table>
+  <thead>
+    <tr>
+      <th scope="col"></th>
+      <th scope="col">ホール</th>
+      <th scope="col">サークル番号</th>
+      <th scope="col">サークル名</th>
+      <th scope="col">Show</th>
+      <th scope="col">Edit</th>
+      <th scope="col">Delete</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @circles.each do |circle| %>
+      <tr>
+        <td><%= circle.circle_image %></td>
+        <td><%= circle.hall_no %></td>
+        <td><%= circle.circle_no %></td>
+        <td><%= circle.circle_name %></td>
+        <td><%= link_to 'Show', circle %></td>
+        <td><%= link_to 'Edit', edit_circle_path(circle) %><td>
+        <td><%= button_to 'Destroy', circle_path(circle), method: :delete, data: { turbo_confirm: 'Are you sure?' } %></td>       
+      </tr>
+    <% end %>
+  </tbody>
+</table>

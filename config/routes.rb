@@ -1,6 +1,4 @@
 Rails.application.routes.draw do
-
-
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")
@@ -13,6 +11,10 @@ Rails.application.routes.draw do
   get 'logout', to: 'user_sessions#destroy'
 
   resources :users, only: %i[new create]
-  resources :events
+  resources :events do 
+    resources :circles do
+      resources :items
+    end
+  end
 
 end

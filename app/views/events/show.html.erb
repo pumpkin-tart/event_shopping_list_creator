@@ -45,6 +45,17 @@
   <%= link_to 'Edit', edit_event_path(@event) %>
   <%= link_to 'Back', events_path %>
 
+
+  <div class="text-right mb-3">
+    <%= link_to 'サークルを追加', new_event_circle_path(@event), class: 'btn btn-outline-success mb5 btn-lg' %>
+  </div>
+
+  <h1>サークル一覧</h1>
+
+  <!-- サークル一覧 -->
+  <%= render 'circles/circles', { circles: @circles } %>
+
+
   <div id='map'><%= image_tag @event.map_image.url %></div>
 
 

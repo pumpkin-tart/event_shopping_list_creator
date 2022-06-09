@@ -1,0 +1,27 @@
+<table class="table table-bordered table-striped mt-4">
+  <thead>
+    <tr>
+      <th scope="col"></th>
+      <th scope="col">アイテム名</th>
+      <th scope="col">金額</th>
+      <th scope="col">メモ</th>
+      <th scope="col">Show</th>
+      <th scope="col">Edit</th>
+      <th scope="col">Delete</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @items.each do |item| %>
+      <tr>
+        <td><%= item.item_image %></td>
+        <td><%= item.item_name %></td>
+        <td><%= item.price %></td>
+        <td><%= item.item_memo %></td>
+        <td><%= link_to 'Show', event_circle_item_path(@circle, item) %></td>
+        <td><%= link_to 'Edit', edit_event_circle_item_path(@circle, item) %><td>
+        <td><%= button_to 'Destroy', event_circle_item_path(@circle, item), method: :delete, data: { turbo_confirm: 'Are you sure?' } %></td>       
+      </tr>
+    <% end %>
+  </tbody>
+</table>
