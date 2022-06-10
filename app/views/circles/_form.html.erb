@@ -1,6 +1,6 @@
 <div class="row mb-3">
   <div class="col-lg-8 offset-lg-2">
-    <%= form_with model: [@event, @circle], local: true do |f| %>
+    <%= form_with new_event_circle_item_path(@item.event, @item.circle), local: true do |f| %>
 
     <%= render 'shared/error_messages', object: f.object %>
     <div class="form-group">
