@@ -6,6 +6,7 @@ class EventsController < ApplicationController
 
   def new
     @event = Event.new
+    @event.circles.build
   end
     
   def create
@@ -23,7 +24,8 @@ class EventsController < ApplicationController
 
   def show
     @event = Event.find(params[:id])
-    gon.event = @event
+    @circle = Circle.new
+    @circles = @event.circles.order(created_at: :desc)
   end
 
   def edit
@@ -49,6 +51,7 @@ class EventsController < ApplicationController
   private
     
   def event_params
-    params.require(:event).permit(:title, :map_image, :map_image_cache)
+    params.require(:event).permit(:title, :map_image, :map_image_cache, circles_attributes: [:circle_id])
   end
+
 end

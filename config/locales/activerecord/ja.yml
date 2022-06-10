@@ -8,3 +8,10 @@ ja:
         email: 'メールアドレス'
         password: 'パスワード'
         password_confirmation: 'パスワード確認'
+        circles:
+      circle:
+        hall_no: 'ホール番号'
+        circle_no: 'サークルスペース'
+        circle_name: 'サークル名'
+        circle_memo: 'メモ'
+        circle_image: 'サークルカット'

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+
+  <h3 class="d-inline"><%= @circle.circle_name %></h3>
+  <a><%= @circle.circle_image_cache %></a>
+  <a><%= @circle.circle_no %></a>
+  <a><%= @circle.circle_image %></a>
+  <a><%= @circle.circle_memo %></a>
+  <%= link_to 'Edit', edit_event_circle_path(@circle) %>
+
+
+
+</head>
+
+  <main>
+    <div class="container-fluid py-4 mw-xl">
+      <div class="base-container">
+        <div class="memos-container">
+          <div class="split-item split-left">
+            <div class="split-left__inner">
+              <h3>アイテム追加</h3>
+              <form>
+                <%= render 'items/form', { item: @item } %>
+              </form>
+            </div>
+          </div>
+          <div class="split-item split-right">
+            <h1 class="text-center">買い物リスト</h1>
+            <%= render 'items/item', { items: @items } %>
+          </div>
+        </div>
+      </div>  
+    </div>
+  </main>
+
+</html>
