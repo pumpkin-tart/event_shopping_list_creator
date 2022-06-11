@@ -2,10 +2,9 @@ class ItemsController < ApplicationController
 
   def create
     @circle = Circle.find(params[:circle_id])
-    @item = Item.new(item_params)
-    @item.circle = Circle.find(params[:circle_id])
+    @item = @circle.items.build(item_params)
     if @item.save
-      redirect_to @circle, success: t('defaults.message.created', item: 'アイテム')
+      redirect_to event_circle_path(@item), controller: :circles, action: :show, success: t('defaults.message.created', item: 'アイテム')
     else
       flash.now['danger'] = t('defaults.message.not_created', item: 'アイテム')
       render :new
@@ -13,8 +12,8 @@ class ItemsController < ApplicationController
   end
 
   def show
-    @item = Item.find(params[:id])
-    @items = @items.order(created_at: :desc)
+    @circle = Circle.find(params[:circle_id])
+    @item = @circle.items.find(params[:id])
   end
 
   def new
@@ -37,6 +36,6 @@ class ItemsController < ApplicationController
   private
     
   def item_params
-    params.require(:item).permit(:item_name, :price, :item_image, item_memo).merge(circle_id: params[:circle_id])
+    params.require(:item).permit(:item_name, :price, :item_image, :item_memo)
   end
 end

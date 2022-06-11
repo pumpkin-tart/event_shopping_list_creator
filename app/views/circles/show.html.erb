@@ -19,13 +19,8 @@
     <div class="container-fluid py-4 mw-xl">
       <div class="base-container">
         <div class="memos-container">
-          <div class="split-item split-left">
-            <div class="split-left__inner">
-              <h3>アイテム追加</h3>
-              <form>
-                <%= render 'items/form', { item: @item } %>
-              </form>
-            </div>
+          <div class="text-right mb-3">
+            <%= link_to 'アイテムを追加', new_event_circle_item_path(@event, @circle), class: 'btn btn-outline-success mb5 btn-lg' %>
           </div>
           <div class="split-item split-right">
             <h1 class="text-center">買い物リスト</h1>

@@ -11,6 +11,7 @@ class EventsController < ApplicationController
     
   def create
     @event = current_user.events.build(event_params)
+    @circles = @event.circles
     if @event.save
       flash.now['success'] = t('defaults.message.created', item: Event.model_name.human)
       render :show
