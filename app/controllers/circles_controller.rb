@@ -1,7 +1,7 @@
 class CirclesController < ApplicationController
   def create
-    @circle = circles.build(circle_params)
     @event = Event.find(params[:event_id])
+    @circle = @event.circles.build(circle_params)
     if @circle.save
       redirect_to @event, success: t('defaults.message.created', item: 'サークル')
     else
@@ -12,20 +12,18 @@ class CirclesController < ApplicationController
   end
 
   def show
-    @circle = Circle.find(params[:id])
-    @item = Item.new
+    @event = Event.find(params[:event_id])
+    @circle = @event.circles.find(params[:id])
     @items = @circle.items.order(created_at: :desc)
   end
 
   def new
     @event = Event.find(params[:event_id])
     @circle = Circle.new
-    @circle.items.build
   end
 
   def edit
-    @event = Event.find(params[:event_id])
-    @circle = current_user.circles.find(params[:id])
+    @circle = Circle.find(params[:id])
   end
 
   def update
@@ -48,6 +46,6 @@ class CirclesController < ApplicationController
   private
     
   def circle_params
-    params.require(:circle).permit(:hall_no, :circle_no, :circle_image, :circle_image_cache, :circle_name, :circle_memo).merge(event_id: params[:event_id])
+    params.require(:circle).permit(:hall_no, :circle_no, :circle_image, :circle_image_cache, :circle_name, :circle_memo, items_attributes: [:item_id])
   end
 end

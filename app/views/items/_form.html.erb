@@ -1,6 +1,6 @@
 <div class="row mb-3">
   <div class="col-lg-8 offset-lg-2">
-    <%= form_with model: @item, url: new_event_circle_item_path, local: true do |f| %>
+    <%= form_with model: @item, method: :post, url: event_circle_items_path(@circle), local: true do |f| %>
 
 
     <div class="form-group">

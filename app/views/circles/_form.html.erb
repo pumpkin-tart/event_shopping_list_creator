@@ -1,6 +1,6 @@
 <div class="row mb-3">
   <div class="col-lg-8 offset-lg-2">
-    <%= form_with new_event_circle_item_path(@item.event, @item.circle), local: true do |f| %>
+    <%= form_with model: @circle, method: :post, url: event_circles_path(@event), local: true do |f| %>
 
     <%= render 'shared/error_messages', object: f.object %>
     <div class="form-group">
@@ -24,6 +24,7 @@
       <%= f.file_field :circle_image, class: 'form-control mb-3', accept: 'image/*' %>
       <%= f.hidden_field :circle_image_cache %>
     </div>
+
    
     <%= f.submit class: 'btn btn-primary' %>
     <% end %>
