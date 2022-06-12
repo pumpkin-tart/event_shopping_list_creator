@@ -1,2 +1,8 @@
-h1 Circles#edit
-p Find me in app/views/circles/edit.html.slim
+<div class="container">
+  <div class="row">
+    <div class="col-lg-8 offset-lg-2">
+      <h1>サークル情報更新</h1>
+      <%= render 'form', { circle: @circle } %>
+    </div>
+  </div>
+</div>

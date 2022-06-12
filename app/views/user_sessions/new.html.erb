@@ -11,7 +11,7 @@
       <%= f.password_field :password, class: 'form-control' %>
     </div>
     <div class="button-panel">
-      <input type="submit" class="button" title="Login" value="ログイン"></input>
+      <%= f.submit (t 'defaults.login'), class: "button" %>
     </div> 
     <div class="form-footer">
       <p><%= link_to '新規登録ページへ', new_user_path %></p>
