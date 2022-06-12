@@ -3,7 +3,6 @@
 
 <head>
   <meta charset="UTF-8">
-  <title>イベントMAP</title>
 
   <!-- Leaflet CSS -->
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css" integrity="sha512-hoalWLoI8r4UszCkZ5kL8vayOGVae1oxXe/2A4AO6J9+580uKHDO3JdHb7NzwwzK5xr/Fs0W40kiNHxM9vyTtQ==" crossorigin=""/>
@@ -41,16 +40,15 @@
 
 <body>
   <% content_for(:title, @event.title) %>
-  <h3 class="d-inline"><%= @event.title %></h3>
-  <%= link_to 'Edit', edit_event_path(@event) %>
-  <%= link_to 'Back', events_path %>
-
+  <h1><%= @event.title %></h1>
+  <%= link_to 'Edit', edit_event_path(@event), class: 'btn-link' %>
+  <%= link_to 'Back', events_path, class: 'btn-link' %>
 
   <div class="text-right mb-3">
-    <%= link_to 'サークルを追加', new_event_circle_path(@event), class: 'btn btn-outline-success mb5 btn-lg' %>
+    <%= link_to 'サークルを追加', new_event_circle_path(@event), class: 'add-button' %>
   </div>
 
-  <h1>サークル一覧</h1>
+  <h3>サークル一覧</h3>
 
   <!-- サークル一覧 -->
   <%= render 'circles/circles', { circles: @circles } %>

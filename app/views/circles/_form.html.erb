@@ -1,6 +1,6 @@
 <div class="row mb-3">
   <div class="col-lg-8 offset-lg-2">
-    <%= form_with model: @circle, method: :post, url: event_circles_path(@event), local: true do |f| %>
+    <%= form_with model: @circle, url: event_circles_path(@event), local: true do |f| %>
 
     <%= render 'shared/error_messages', object: f.object %>
     <div class="form-group">
@@ -26,7 +26,7 @@
     </div>
 
    
-    <%= f.submit class: 'btn btn-primary' %>
+    <%= f.submit class: 'register-button' %>
     <% end %>
   </div>
 </div>

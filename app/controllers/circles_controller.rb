@@ -23,11 +23,12 @@ class CirclesController < ApplicationController
   end
 
   def edit
+    @event = Event.find(params[:event_id])
     @circle = Circle.find(params[:id])
   end
 
   def update
-    @circle = current_user.circles.find(params[:id])
+    @circle = Circle.find(params[:id])
     if @circle.update(circle_params)
       redirect_to @circle, success: t('defaults.message.updated', item: Circle)
     else

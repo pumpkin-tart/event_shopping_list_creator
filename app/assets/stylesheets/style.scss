@@ -30,6 +30,10 @@ h1 {
   padding: 1em 0;
 }
 
+h3 {
+  margin: 0px 20px;
+}
+
 form {
   padding: 0 1.5em;
 }
@@ -100,3 +104,146 @@ form {
   margin-left: 20px;
   margin-right: 20px;
 }
+
+.container {
+  box-sizing: border-box;
+  float: left;
+}
+
+.event {
+  position: relative;
+  margin: 0px 20px;
+}
+.tr {
+  padding: 10px;
+}
+
+.btn-link {
+    float: right;
+    display: inline-block;
+    border-bottom: 2px dotted;
+    padding: .5rem 2.6rem .5rem .5rem;
+    transition: all .3s;
+    color:#614f38;
+  
+    &:before {
+      content: "";
+      position: absolute;
+      right: 5px;
+      bottom: 0;
+      width: 0;
+      height: 0;
+      bottom:40%;
+      border-left: 5px solid black;
+      border-top: 5px solid transparent;
+      border-bottom: 5px solid transparent;
+      transition: all .3s;
+      
+    }
+    &:hover{
+      
+      &:before{
+        right:0;
+      }
+    }
+}
+
+.add-button {
+  margin: 0px 20px;
+  text-align: left;
+  position: relative;
+  text-decoration: none;
+  display: inline-block;
+  background-color: #fff;
+  border-radius: 4px;
+  padding: 11px 20px 11px 40px;
+  color: inherit;
+  transition: all .3s;
+  border: 1px solid;
+  &:before, &:after {
+    content: "";
+    position: absolute;
+    display:block;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    transition: all .3s;
+    
+  }
+  &:before {
+    left:15px;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: #614f38;
+  }
+  &:after {
+    left: 18px;
+    width: 5px;
+    height: 5px;
+    border-top: 2px solid #fff;
+    border-right: 2px solid #fff;
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
+  }
+  &:hover {
+    background-color: #614f38;
+    color: #fff;
+    &:before{
+      background:#fff;
+    }
+    &:after{
+      border-color:#614f38;
+    }
+  }
+}
+
+.register-button {
+    margin: 0px 20px;
+    text-align: center;
+    position: relative;
+    text-decoration: none;
+    display: inline-block;
+    background-color: #fff;
+    border-radius: 4px;
+    padding: 11px 20px 11px 40px;
+    color: inherit;
+    transition: all .3s;
+    border: 1px solid;
+    &:before, &:after {
+      content: "";
+      position: absolute;
+      display:block;
+      top: 0;
+      bottom: 0;
+      margin: auto;
+      transition: all .3s;
+      
+    }
+    &:before {
+      left:15px;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background: #614f38;
+    }
+    &:after {
+      left: 18px;
+      width: 5px;
+      height: 5px;
+      border-top: 2px solid #fff;
+      border-right: 2px solid #fff;
+      -webkit-transform: rotate(45deg);
+      transform: rotate(45deg);
+    }
+    &:hover {
+      background-color: #614f38;
+      color: #fff;
+      &:before{
+        background:#fff;
+      }
+      &:after{
+        border-color:#614f38;
+      }
+    }
+  }
