@@ -41,8 +41,8 @@
 <body>
   <% content_for(:title, @event.title) %>
   <h1><%= @event.title %></h1>
-  <%= link_to 'Edit', edit_event_path(@event), class: 'btn-link' %>
-  <%= link_to 'Back', events_path, class: 'btn-link' %>
+  <%= link_to '編集', edit_event_path(@event), class: 'btn-link' %>
+  <%= link_to 'イベント一覧に戻る', events_path, class: 'btn-link' %>
 
   <div class="text-right mb-3">
     <%= link_to 'サークルを追加', new_event_circle_path(@event), class: 'add-button' %>

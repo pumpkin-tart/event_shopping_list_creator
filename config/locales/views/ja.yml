@@ -22,6 +22,8 @@ ja:
     new:
       title: 'ユーザー登録'
       to_login_page: 'ログインページへ'
+    create:
+      fail: 'ユーザー作成に失敗しました'
   user_sessions:
     new:
       title: 'ログイン'
@@ -38,3 +40,18 @@ ja:
       no_result: '地図がありません。'
     new:
       title: 'イベント作成'
+  circles:
+    update:
+      success: 'サークル情報を更新しました'
+      fail: '更新に失敗しました'
+  password_resets:
+    new:
+      title: 'パスワードリセット申請'
+      submit: '送信'
+    edit:
+      title: 'パスワードリセット'
+    create:
+      success: 'パスワードリセット手順を送信しました'
+    update:
+      success: 'パスワードを変更しました'
+      fail: 'パスワードの変更に失敗しました'

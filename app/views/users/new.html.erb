@@ -1,25 +1,26 @@
 <div class="form-wrapper">
   <h1>サインイン</h1>
-  <form>
+  
     <%= form_with model: @user, local: true do |f| %>
-    <div class="form-group">
-      <%= f.label :email %>
-      <%= f.email_field :email, class: 'form-control' %>
-    </div>
-    <div class="form-group">
-      <%= f.label :password %>
-      <%= f.password_field :password, class: 'form-control' %>
-    </div>
-    <div class="form-group">
-      <%= f.label :password_confirmation %>
-      <%= f.password_field :password_confirmation, class: 'form-control' %>
-    </div>
-    <div class="button-panel">
-      <input type="submit" class="button" title="Sign In" value="サインイン"></input>
-    </div>
-    <div class="form-footer">
-      <p><%= link_to 'ログインページへ', login_path %></p>
-    </div>
+      <form>
+        <div class="form-group">
+          <%= f.label :email %>
+          <%= f.email_field :email, class: 'form-control' %>
+        </div>
+        <div class="form-group">
+          <%= f.label :password %>
+          <%= f.password_field :password, class: 'form-control' %>
+        </div>
+        <div class="form-group">
+          <%= f.label :password_confirmation %>
+          <%= f.password_field :password_confirmation, class: 'form-control' %>
+        </div>
+        <div class="button-panel">
+          <input type="submit" class="button" title="Sign In" value="サインイン"></input>
+        </div>
+        <div class="form-footer">
+          <p><%= link_to 'ログインページへ', login_path %></p>
+        </div>
+      </form>  
     <% end %>
-  </form>
 </div>

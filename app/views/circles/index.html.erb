@@ -11,9 +11,9 @@
       <th scope="col">ホール</th>
       <th scope="col">サークル番号</th>
       <th scope="col">サークル名</th>
-      <th scope="col">Show</th>
-      <th scope="col">Edit</th>
-      <th scope="col">Delete</th>
+      <th scope="col"></th>
+      <th scope="col"></th>
+      <th scope="col"></th>
     </tr>
   </thead>
 
@@ -24,9 +24,9 @@
         <td><%= circle.hall_no %></td>
         <td><%= circle.circle_no %></td>
         <td><%= circle.circle_name %></td>
-        <td><%= link_to 'Show', circle %></td>
-        <td><%= link_to 'Edit', edit_circle_path(circle) %><td>
-        <td><%= button_to 'Destroy', circle_path(circle), method: :delete, data: { turbo_confirm: 'Are you sure?' } %></td>       
+        <td><%= link_to 'Show', circle, class: "show-button" %></td>
+        <td><%= link_to 'Edit', edit_circle_path(circle), class: "show-button" %><td>
+        <td><%= button_to 'Destroy', circle_path(circle), class: "show-button", method: :delete, data: { turbo_confirm: 'Are you sure?' } %></td>       
       </tr>
     <% end %>
   </tbody>

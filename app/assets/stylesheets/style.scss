@@ -119,12 +119,13 @@ form {
 }
 
 .btn-link {
+    margin: 0 10px;
     float: right;
     display: inline-block;
     border-bottom: 2px dotted;
     padding: .5rem 2.6rem .5rem .5rem;
     transition: all .3s;
-    color:#614f38;
+    color:#f16272;
   
     &:before {
       content: "";
@@ -148,6 +149,7 @@ form {
     }
 }
 
+/* 追加ボタン */
 .add-button {
   margin: 0px 20px;
   text-align: left;
@@ -175,7 +177,7 @@ form {
     width: 16px;
     height: 16px;
     border-radius: 50%;
-    background: #614f38;
+    background: #f16272;
   }
   &:after {
     left: 18px;
@@ -187,19 +189,19 @@ form {
     transform: rotate(45deg);
   }
   &:hover {
-    background-color: #614f38;
+    background-color: #f16272;
     color: #fff;
     &:before{
       background:#fff;
     }
     &:after{
-      border-color:#614f38;
+      border-color:#f16272;;
     }
   }
 }
 
+/* 送信ボタン */
 .register-button {
-    margin: 0px 20px;
     text-align: center;
     position: relative;
     text-decoration: none;
@@ -225,7 +227,7 @@ form {
       width: 16px;
       height: 16px;
       border-radius: 50%;
-      background: #614f38;
+      background: #f16272;;
     }
     &:after {
       left: 18px;
@@ -237,13 +239,23 @@ form {
       transform: rotate(45deg);
     }
     &:hover {
-      background-color: #614f38;
+      background-color: #f16272;
       color: #fff;
       &:before{
         background:#fff;
       }
       &:after{
-        border-color:#614f38;
+        border-color:#f16272;
       }
     }
+  }
+
+  .show-button {
+    display: inline-block;
+    padding: 0.4em 1.6em;
+    font-size: 1em;
+    color: #f16272;
+    text-decoration: none;
+    user-select: none;
+    border: none;
   }
