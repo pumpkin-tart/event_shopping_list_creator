@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  mount LetterOpenerWeb::Engine, at: '/letter_opener' if Rails.env.development?
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")
@@ -10,11 +11,13 @@ Rails.application.routes.draw do
   post 'login', to: 'user_sessions#create'
   get 'logout', to: 'user_sessions#destroy'
 
+
   resources :users, only: %i[new create]
   resources :events do 
     resources :circles do
       resources :items
     end
   end
+  resources :password_resets, only: %i[new create edit update]
 
 end

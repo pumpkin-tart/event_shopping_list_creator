@@ -1,4 +1,5 @@
 class CirclesController < ApplicationController
+
   def create
     @event = Event.find(params[:event_id])
     @circle = @event.circles.build(circle_params)
@@ -19,20 +20,20 @@ class CirclesController < ApplicationController
 
   def new
     @event = Event.find(params[:event_id])
-    @circle = Circle.new
+    @circle = @event.circles.build
   end
 
   def edit
     @event = Event.find(params[:event_id])
-    @circle = Circle.find(params[:id])
+    @circle = @event.circles.find(params[:id])
   end
 
   def update
     @circle = Circle.find(params[:id])
     if @circle.update(circle_params)
-      redirect_to @circle, success: t('defaults.message.updated', item: Circle)
+      redirect_to event_path(@circle.event_id), success: t('circles.update.success') 
     else
-      flash.now['danger'] = t('defaults.message.not_updated', item: Circle)
+      flash.now['danger'] = t('circles.update.fail')
       render :edit
     end
   end
@@ -41,7 +42,7 @@ class CirclesController < ApplicationController
     @event = Event.find(params[:event_id])
     @circle = Circle.find(params[:id])
     @circle.destroy!
-    redirect_to @event, success: t('defaults.message.deleted', item: 'イベントMAP')
+    redirect_to @event, success: t('defaults.message.deleted', item: 'サークル')
   end
     
   private

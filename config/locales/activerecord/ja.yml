@@ -15,3 +15,8 @@ ja:
         circle_name: 'サークル名'
         circle_memo: 'メモ'
         circle_image: 'サークルカット'
+      item:
+        item_name: 'アイテム名'
+        price: '値段'
+        item_image: '画像'
+        item_memo: 'メモ'

@@ -4,7 +4,7 @@ class ItemsController < ApplicationController
     @circle = Circle.find(params[:circle_id])
     @item = @circle.items.build(item_params)
     if @item.save
-      redirect_to event_circle_path(@item), controller: :circles, action: :show, success: t('defaults.message.created', item: 'アイテム')
+      redirect_to event_circle_path(@item.id), success: t('defaults.message.created', item: 'アイテム')
     else
       flash.now['danger'] = t('defaults.message.not_created', item: 'アイテム')
       render :new
@@ -18,7 +18,7 @@ class ItemsController < ApplicationController
 
   def new
     @circle = Circle.find(params[:circle_id])
-    @item = Item.new
+    @item = @circle.items.build
   end
 
   def edit
