@@ -259,3 +259,27 @@ form {
     user-select: none;
     border: none;
   }
+
+  .show, .edit, .destroy {
+    width: 100px;
+  }
+
+  .circle-name {
+    width: 300px;
+  } 
+
+  .card-img-top {
+    width: 120px;
+    height: 150px;
+  }
+
+  .card-thumb-nail {
+    width: 240px;
+    height: 300px;
+    margin: 20px;
+  }
+
+  .d-inline {
+    margin: 20px;
+  }
+

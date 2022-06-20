@@ -9,6 +9,9 @@ ja:
         password: 'パスワード'
         password_confirmation: 'パスワード確認'
         circles:
+      event:
+        title: 'イベント名'
+        map_image: '地図'
       circle:
         hall_no: 'ホール番号'
         circle_no: 'サークルスペース'

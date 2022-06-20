@@ -473,7 +473,7 @@ Rails.application.config.sorcery.configure do |config|
     # Hammering protection: how long in seconds to wait before allowing another email to be sent.
     # Default: `5 * 60`
     #
-    # user.magic_login_time_between_emails =
+     user.reset_password_time_between_emails
 
     # -- brute_force_protection --
     # Failed logins attribute name.

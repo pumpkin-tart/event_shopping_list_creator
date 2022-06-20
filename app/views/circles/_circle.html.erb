@@ -2,19 +2,21 @@
   <thead>
     <tr>
       <th scope="col"></th>
-      <th scope="col">ホール</th>
-      <th scope="col">サークル番号</th>
-      <th scope="col">サークル名</th>
-      <th scope="col"></th>
-      <th scope="col"></th>
-      <th scope="col"></th>
+      <th scope="col" class="hall">ホール</th>
+      <th scope="col" class="circle-no">サークル番号</th>
+      <th scope="col" class="circle-name">サークル名</th>
+      <th scope="col" class="show"></th>
+      <th scope="col" class="edit"></th>
+      <th scope="col" class="destroy"></th>
     </tr>
   </thead>
 
   <tbody>
     <% @circles.each do |circle| %>
       <tr>
-        <td><%= circle.circle_image %></td>
+        <% if circle.circle_image_url %>
+          <td><%= image_tag circle.circle_image_url, class: 'card-img-top' %></td>
+        <% end %>
         <td><%= circle.hall_no %></td>
         <td><%= circle.circle_no %></td>
         <td><%= circle.circle_name %></td>

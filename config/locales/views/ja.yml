@@ -11,7 +11,7 @@ ja:
     unspecified: '指定なし'
     message:
       require_login: 'ログインしてください'
-      created: "地図を登録しました"
+      created: "登録しました"
       not_created: "%{item}を作成できませんでした"
       updated: "%{item}を更新しました"
       not_updated: "%{item}を更新できませんでした"
@@ -23,6 +23,7 @@ ja:
       title: 'ユーザー登録'
       to_login_page: 'ログインページへ'
     create:
+      success: 'ユーザー登録が完了しました'
       fail: 'ユーザー作成に失敗しました'
   user_sessions:
     new:
