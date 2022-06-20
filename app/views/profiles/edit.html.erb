@@ -1,0 +1,19 @@
+<% content_for(:title, t('.title')) %>
+<div class="container">
+  <div class="row">
+    <div class="col-lg-8 offset-lg-2">
+      <h1>ユーザー情報</h1>
+      <%= form_with model: @user, url: profile_path, local: true do |f| %>
+        <%= render 'shared/error_messages', object: f.object %>
+        <%= f.label :email %>
+        <%= f.email_field :email, class: 'form-control mb-3' %>
+   
+        <div class="actions">
+          <p class="text-center">
+            <%= f.submit class: 'register-button' %>
+          </p>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

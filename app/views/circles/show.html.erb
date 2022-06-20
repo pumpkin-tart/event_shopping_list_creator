@@ -3,13 +3,19 @@
 
 <head>
   <meta charset="UTF-8">
+  <style>
+    a {
+      font-size: 20px; 
+      margin: 10px 0;
+    }
+  </style>
 
-  <h3 class="d-inline"><%= @circle.circle_name %></h3>
-  <a><%= @circle.circle_image_cache %></a>
-  <a><%= @circle.circle_no %></a>
-  <a><%= @circle.circle_image %></a>
-  <a><%= @circle.circle_memo %></a>
-  <%= link_to 'Edit', edit_event_circle_path(@circle) %>
+  <%= image_tag @circle.circle_image.url, class: "card-thumb-nail" %>
+  <h1 class="d-inline"><%= @circle.circle_no %></h1>
+  <h1 class="d-inline"><%= @circle.circle_name %></h1>
+
+  <%= link_to '編集', edit_event_circle_path(@event, @circle), class: 'btn-link' %>
+  <%= link_to 'サークル一覧に戻る', event_path(@event), class: 'btn-link' %>
 
 
 
@@ -20,10 +26,13 @@
       <div class="base-container">
         <div class="memos-container">
           <div class="text-right mb-3">
-            <%= link_to 'アイテムを追加', new_event_circle_item_path(@event, @circle), class: 'btn btn-outline-success mb5 btn-lg' %>
+            <%= link_to 'アイテムを追加', new_event_circle_item_path(@event, @circle), class: 'add-button' %>
           </div>
           <div class="split-item split-right">
             <h1 class="text-center">買い物リスト</h1>
+            <a>サークルメモ</a>
+            <br>
+            <a><%= @circle.circle_memo %></a>
             <%= render 'items/item', { items: @items } %>
           </div>
         </div>
