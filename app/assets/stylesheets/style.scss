@@ -127,20 +127,7 @@ form {
     transition: all .3s;
     color:#f16272;
   
-    &:before {
-      content: "";
-      position: absolute;
-      right: 5px;
-      bottom: 0;
-      width: 0;
-      height: 0;
-      bottom:40%;
-      border-left: 5px solid black;
-      border-top: 5px solid transparent;
-      border-bottom: 5px solid transparent;
-      transition: all .3s;
-      
-    }
+  
     &:hover{
       
       &:before{
@@ -172,13 +159,7 @@ form {
     transition: all .3s;
     
   }
-  &:before {
-    left:15px;
-    width: 16px;
-    height: 16px;
-    border-radius: 50%;
-    background: #f16272;
-  }
+
   &:after {
     left: 18px;
     width: 5px;

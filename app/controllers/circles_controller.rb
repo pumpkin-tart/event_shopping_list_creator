@@ -15,7 +15,7 @@ class CirclesController < ApplicationController
   def show
     @event = Event.find(params[:event_id])
     @circle = @event.circles.find(params[:id])
-    @items = @circle.items.order(created_at: :desc)
+    @items = @circle.items.order(created_at: :desc).page(params[:page])
   end
 
   def new
