@@ -54,57 +54,10 @@
   <%= render 'circles/circles', { circles: @circles } %>
 
 
-  <div id='map'><%= image_tag @event.map_image.url %></div>
-
-
-  <script>
-
-  var map,
-          cm,
-          ll = new L.LatLng(-36.852668, 174.762675),
-          ll2 = new L.LatLng(-36.86, 174.77);
-
-      function showCoordinates (e) {
-        alert(e.latlng);
-      }
-
-      function centerMap (e) {
-        map.panTo(e.latlng);
-      }
-
-      function zoomIn (e) {
-        map.zoomIn();
-      }
-
-      function zoomOut (e) {
-        map.zoomOut();
-      }
-
-
-      map = L.map('map', {
-        center: ll,
-        zoom: 15,
-        contextmenu: true,
-        contextmenuWidth: 140,
-        contextmenuItems: [{
-          text: 'Bookmark this position',
-          callback: function(evt) {
-            this.fire('bookmark:new', { latlng: evt.latlng });
-          }
-        }]
-      });
-
-
-  var popup = L.responsivePopup().setContent('Leaflet Plugin ResponsivePopup Test Marker1<br>マーカー１');
-    L.marker([35.7101, 139.8107]).addTo(map).bindPopup(popup);
-
-
-  var control = new L.Control.Bookmarks().addTo(map);
+  <%= image_tag @event.map_image.url %>
 
 
 
-
-  </script> 
 
 
 

@@ -49,13 +49,5 @@ class ItemImageUploader < CarrierWave::Uploader::Base
     'sample.jpg'
   end
 
-  # サムネイル画像
-  version :thumb do
-    process :resize_to_fill => [80, 80]
-  end
 
-  # Maxサイズ
-  version :content do
-    process :resize_to_limit => [640, 640]
-  end
 end

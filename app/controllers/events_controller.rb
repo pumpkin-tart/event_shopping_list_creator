@@ -1,7 +1,7 @@
 class EventsController < ApplicationController
 
   def index
-    @events = current_user.events.includes(:user).order(created_at: :desc)
+    @events = current_user.events.includes(:user).order(created_at: :desc).page(params[:page])
   end
 
   def new
@@ -36,7 +36,7 @@ class EventsController < ApplicationController
   def update
     @event = current_user.events.find(params[:id])
     if @event.update(event_params)
-      redirect_to @event, success: t('defaults.message.updated', item: Event)
+      redirect_to @event, success: t('defaults.message.updated', item: 'イベント情報')
     else
       flash.now['danger'] = t('defaults.message.not_updated', item: Event)
       render :edit

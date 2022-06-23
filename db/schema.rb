@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_06_12_092958) do
+ActiveRecord::Schema[7.0].define(version: 2022_06_23_060026) do
   create_table "circle_genres", charset: "utf8mb4", force: :cascade do |t|
     t.bigint "circle_id", null: false
     t.datetime "created_at", null: false
@@ -32,7 +32,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_12_092958) do
 
   create_table "events", charset: "utf8mb4", force: :cascade do |t|
     t.string "title", null: false
-    t.string "map_image", null: false
+    t.string "map_image"
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

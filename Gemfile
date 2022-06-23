@@ -11,6 +11,8 @@ gem 'rails-i18n'
 gem 'carrierwave'
 gem 'rmagick'
 
+gem 'kaminari'
+
 gem 'leaflet-rails'
 
 gem 'slim-rails'
@@ -19,6 +21,8 @@ gem 'html2slim'
 gem 'sass-rails'
 
 gem 'config'
+
+gem 'high_voltage'
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 7.0.2", ">= 7.0.2.3"
