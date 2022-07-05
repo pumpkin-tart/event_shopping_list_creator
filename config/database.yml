@@ -53,3 +53,6 @@ production:
   database: event_shopping_list_creator_production
   username: event_shopping_list_creator
   password: <%= ENV["EVENT_SHOPPING_LIST_CREATOR_DATABASE_PASSWORD"] %>
+  adapter: postgresql
+  encoding: unicode
+  pool: 5

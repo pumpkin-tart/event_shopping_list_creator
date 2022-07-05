@@ -84,6 +84,7 @@ group :development, :test do
   gem 'rspec-rails'
 
   gem 'letter_opener_web'
+  gem 'sqlite3', '~> 1.4'
 end
 
 group :development do
@@ -97,3 +98,6 @@ group :development do
   # gem "spring"
 end
 
+group :production do
+  gem 'pg'
+end
