@@ -9,6 +9,9 @@ const server = http.createServer((req, res) => {
   res.end('Hello World\n');
 });
 
-server.listen(port, hostname, () => {
-  console.log(`Server running at http://${hostname}:${port}/`);
+server.listen(0);
+server.on('listening', () => {
+  // ここで random port が取れる
+  const port = server.address().port;
 });
+
