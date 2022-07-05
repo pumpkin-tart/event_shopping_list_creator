@@ -11,13 +11,11 @@
     "leaflet": "^1.8.0",
     "leaflet-bookmarks": "^0.4.0",
     "leaflet-contextmenu": "^1.4.0",
-    "webpack": "^4.46.0"
+    "webpack": "^5.73.0"
   },
-  "scripts": {
-    "build": "webpack app/index.js dist/bundle.js"
-  },
+
   "devDependencies": {
-    "webpack-cli": "^3.3.12",
+    "webpack-cli": "^4.10.0",
     "webpack-dev-server": "^3"
   }
 }
