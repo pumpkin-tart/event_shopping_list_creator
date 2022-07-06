@@ -9,7 +9,7 @@ const server = http.createServer((req, res) => {
   res.end('Hello World\n');
 });
 
-server.listen(0);
+
 server.on('listening', () => {
   // ここで random port が取れる
   const port = server.address().port;
