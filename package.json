@@ -15,7 +15,7 @@
     "leaflet": "^1.8.0",
     "leaflet-bookmarks": "^0.4.0",
     "leaflet-contextmenu": "^1.4.0",
-    "sequelize": "^5.5.0",
+    "sequelize": "^5.22.5",
     "sequelize-cli": "^5.4.0"
   },
   "devDependencies": {
