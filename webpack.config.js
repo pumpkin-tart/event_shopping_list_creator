@@ -1,5 +1,7 @@
 const path = require('path')
 
+const webpack = require('webpack');
+
 module.exports = {
   // 作業ディレクトリがある場合はentryの書き方が変わる
   context: `${__dirname}/src`,

@@ -104,3 +104,4 @@ group :production do
 end
 
 gem 'rack-timeout', require: 'rack/timeout/base'
+gem 'aws-sdk', '~> 2'
