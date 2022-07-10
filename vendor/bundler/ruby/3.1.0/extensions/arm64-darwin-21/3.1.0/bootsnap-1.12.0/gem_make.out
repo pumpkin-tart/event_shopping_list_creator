@@ -1,0 +1,15 @@
+current directory: /Users/satouruna/workspace/runteq/heroku_deploy_1/event_shopping_list_creator/vendor/bundler/ruby/3.1.0/gems/bootsnap-1.12.0/ext/bootsnap
+/Users/satouruna/.rbenv/versions/3.1.0/bin/ruby -I /Users/satouruna/.rbenv/versions/3.1.0/lib/ruby/3.1.0 -r ./siteconf20220710-97590-9m0sdo.rb extconf.rb
+creating Makefile
+
+current directory: /Users/satouruna/workspace/runteq/heroku_deploy_1/event_shopping_list_creator/vendor/bundler/ruby/3.1.0/gems/bootsnap-1.12.0/ext/bootsnap
+make DESTDIR\= clean
+
+current directory: /Users/satouruna/workspace/runteq/heroku_deploy_1/event_shopping_list_creator/vendor/bundler/ruby/3.1.0/gems/bootsnap-1.12.0/ext/bootsnap
+make DESTDIR\=
+compiling bootsnap.c
+linking shared-object bootsnap/bootsnap.bundle
+
+current directory: /Users/satouruna/workspace/runteq/heroku_deploy_1/event_shopping_list_creator/vendor/bundler/ruby/3.1.0/gems/bootsnap-1.12.0/ext/bootsnap
+make DESTDIR\= install
+/usr/bin/install -c -m 0755 bootsnap.bundle ./.gem.20220710-97590-7gnt0r/bootsnap

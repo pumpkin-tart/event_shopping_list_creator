@@ -1,0 +1,15 @@
+current directory: /Users/satouruna/workspace/runteq/heroku_deploy_1/event_shopping_list_creator/vendor/bundler/ruby/3.1.0/gems/websocket-driver-0.7.5/ext/websocket-driver
+/Users/satouruna/.rbenv/versions/3.1.0/bin/ruby -I /Users/satouruna/.rbenv/versions/3.1.0/lib/ruby/3.1.0 -r ./siteconf20220710-97590-f6plto.rb extconf.rb
+creating Makefile
+
+current directory: /Users/satouruna/workspace/runteq/heroku_deploy_1/event_shopping_list_creator/vendor/bundler/ruby/3.1.0/gems/websocket-driver-0.7.5/ext/websocket-driver
+make DESTDIR\= clean
+
+current directory: /Users/satouruna/workspace/runteq/heroku_deploy_1/event_shopping_list_creator/vendor/bundler/ruby/3.1.0/gems/websocket-driver-0.7.5/ext/websocket-driver
+make DESTDIR\=
+compiling websocket_mask.c
+linking shared-object websocket_mask.bundle
+
+current directory: /Users/satouruna/workspace/runteq/heroku_deploy_1/event_shopping_list_creator/vendor/bundler/ruby/3.1.0/gems/websocket-driver-0.7.5/ext/websocket-driver
+make DESTDIR\= install
+/usr/bin/install -c -m 0755 websocket_mask.bundle ./.gem.20220710-97590-g3j6bs
