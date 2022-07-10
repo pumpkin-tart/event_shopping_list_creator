@@ -102,3 +102,5 @@ group :production do
   gem 'pg'
   gem 'rails_12factor'
 end
+
+gem 'rack-timeout', require: 'rack/timeout/base'
