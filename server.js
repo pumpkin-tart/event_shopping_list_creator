@@ -2,6 +2,8 @@ const http = require('http');
 const express = require('express');
 const app = express();
 
+console.log(process.env.DATABASE_URL);
+
 
 const hostname = '127.0.0.1';
 const port = process.env.PORT || 3000;
