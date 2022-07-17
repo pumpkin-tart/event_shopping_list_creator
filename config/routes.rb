@@ -19,6 +19,8 @@ Rails.application.routes.draw do
     end
   end
   resource :profile, only: %i[show edit update]
+  resource :terms_of_service, only: %i[show]
+  resource :privacy_policy, only: %i[show]
   resources :password_resets, only: %i[new create edit update]
 
 end
